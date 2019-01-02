@@ -5,14 +5,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GoodnwsWebApp.Models;
+using GoodnwsWebApp.Services;
+using GoodnwsWebApp.ViewModels;
 
 namespace GoodnwsWebApp.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IStories _stories;
+
+        public HomeController(IStories stories)
+        {
+            _stories = stories;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var model = new HomePageViewModel
+            {
+                Stories = _stories.GetStories()
+            };
+            return View(model);
         }
 
         public IActionResult Privacy()
