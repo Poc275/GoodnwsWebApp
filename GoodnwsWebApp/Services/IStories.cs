@@ -5,7 +5,7 @@ namespace GoodnwsWebApp.Services
 {
     public interface IStories
     {
-        IQueryable<Story> GetStories();
+        IQueryable<Story> GetStories(int page);
 
         Story Get(string url);
     }

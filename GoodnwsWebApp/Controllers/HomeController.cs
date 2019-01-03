@@ -23,7 +23,7 @@ namespace GoodnwsWebApp.Controllers
         {
             var model = new HomePageViewModel
             {
-                Stories = _stories.GetStories()
+                Stories = _stories.GetStories(0)
             };
             return View(model);
         }

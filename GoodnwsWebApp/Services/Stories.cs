@@ -20,9 +20,14 @@ namespace GoodnwsWebApp.Services
             return _context.Stories.FirstOrDefault(story => story.Link == url);
         }
 
-        public IQueryable<Story> GetStories()
+        public IQueryable<Story> GetStories(int page)
         {
-            return _context.Stories.Take(10).OrderByDescending(s => s.Date);
+            int take = 10;
+            int skip = page * take;
+
+            return _context.Stories.OrderByDescending(s => s.Date)
+                .Skip(skip)
+                .Take(take);
         }
     }
 }
