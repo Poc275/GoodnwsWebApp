@@ -1,0 +1,25 @@
+﻿@model GoodnwsWebApp.Models.Story
+@{
+    var confidencePercentage = Model.Confidence * 100;
+}
+<article class="container story">
+    <div class="row">
+        <div class="col-12 meta-data">
+            <small><i class="fas fa-tags"></i> @Model.Source | <i class="far fa-clock"></i> @Model.Date</small>
+        </div>
+        <div class="col-md-6">
+            <h3><a href="@Model.Link" target="_blank">@Html.Raw(Model.Title)</a></h3>
+            <p>@Model.Description</p>
+        </div>
+
+        <div class="col-md-6">
+            <a href="@Model.Link" target="_blank">
+                <img src="@Model.Image" alt="@Model.Title" />
+            </a>
+        </div>
+
+        <div class="col">
+            <p><i class="far fa-smile"></i> @confidencePercentage%</p>
+        </div>
+    </div>
+</article>
