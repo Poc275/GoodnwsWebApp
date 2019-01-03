@@ -8,5 +8,7 @@ namespace GoodnwsWebApp.Services
         IQueryable<Story> GetStories(int page);
 
         Story Get(string url);
+
+        int GetTotalNumberOfStories();
     }
 }

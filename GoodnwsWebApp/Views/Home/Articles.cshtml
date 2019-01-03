@@ -1,9 +1,11 @@
 ﻿@model GoodnwsWebApp.ViewModels.HomePageViewModel
-@{
-    ViewData["Title"] = "Goodnws - It does exist";
-}
 
-<div class="container root">
+@if (Model.Stories.Count() == 0)
+{
+    <p class="story">No more articles</p>
+}
+else
+{
     @foreach (var article in Model.Stories)
     {
         var confidencePercentage = article.Confidence * 100;
@@ -51,11 +53,4 @@
             </article>
         }
     }
-
-    <!-- infinite scroll status elements -->
-    <div class="scroller-status">
-        <p class="infinite-scroll-request">Loading&hellip;</p>
-        <p class="infinite-scroll-last">No more articles</p>
-        <p class="infinite-scroll-error">Error retrieving articles</p>
-    </div>
-</div>
+}

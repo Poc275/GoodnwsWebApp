@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using GoodnwsWebApp.Models;
+﻿using GoodnwsWebApp.Models;
 using GoodnwsWebApp.Services;
 using GoodnwsWebApp.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace GoodnwsWebApp.Controllers
 {
@@ -26,6 +22,20 @@ namespace GoodnwsWebApp.Controllers
                 Stories = _stories.GetStories(0)
             };
             return View(model);
+        }
+
+        public IActionResult GetMoreArticles([FromQuery]int page)
+        {
+            var model = new HomePageViewModel
+            {
+                Stories = _stories.GetStories(page + 1)
+            };
+            return PartialView("Articles", model);
+        }
+
+        public int GetTotalNumberOfArticles()
+        {
+            return _stories.GetTotalNumberOfStories();
         }
 
         public IActionResult Privacy()

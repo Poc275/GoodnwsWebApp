@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using GoodnwsWebApp.Models;
 using System.Linq;
-using System.Threading.Tasks;
-using GoodnwsWebApp.Models;
 
 namespace GoodnwsWebApp.Services
 {
@@ -28,6 +25,11 @@ namespace GoodnwsWebApp.Services
             return _context.Stories.OrderByDescending(s => s.Date)
                 .Skip(skip)
                 .Take(take);
+        }
+
+        public int GetTotalNumberOfStories()
+        {
+            return _context.Stories.Count();
         }
     }
 }
