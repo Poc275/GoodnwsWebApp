@@ -15,3 +15,13 @@
         status: '.scroller-status'
     });
 });
+
+function flagStory(url, id) {
+    fetch('/Home/FlagStory/?url=' + url).then(function (response) {
+        // hide the element
+        $('#' + id).collapse('hide');
+        // display flag message
+        var parent = $('#' + id).parent();
+        parent.append('<p>Thank you. This will help improve our good news predictions</p>');
+    });
+}

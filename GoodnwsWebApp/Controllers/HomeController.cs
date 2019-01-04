@@ -38,6 +38,11 @@ namespace GoodnwsWebApp.Controllers
             return _stories.GetTotalNumberOfStories();
         }
 
+        public void FlagStory([FromQuery]string url)
+        {
+            _stories.FlagStory(url);
+        }
+
         public IActionResult Privacy()
         {
             return View();

@@ -10,5 +10,7 @@ namespace GoodnwsWebApp.Services
         Story Get(string url);
 
         int GetTotalNumberOfStories();
+
+        void FlagStory(string url);
     }
 }

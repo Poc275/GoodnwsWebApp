@@ -15,11 +15,10 @@
             @await Html.PartialAsync("~/Views/Shared/_ArticleWithImage.cshtml", article)
         }
     }
-
-    <!-- infinite scroll status elements -->
-    <div class="scroller-status">
-        <p class="infinite-scroll-request">Loading&hellip;</p>
-        <p class="infinite-scroll-last">No more articles</p>
-        <p class="infinite-scroll-error">Error retrieving articles</p>
-    </div>
+</div>
+<!-- infinite scroll status elements -->
+<div class="scroller-status">
+    <p class="infinite-scroll-request text-center">Loading&hellip;</p>
+    <p class="infinite-scroll-last">No more articles</p>
+    <p class="infinite-scroll-error">Error retrieving articles</p>
 </div>

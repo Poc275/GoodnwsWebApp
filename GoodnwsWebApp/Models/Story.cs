@@ -14,6 +14,6 @@ namespace GoodnwsWebApp.Models
         public string Image { get; set; }
         public string Source { get; set; }
         public float Confidence { get; set; }
-        public int Votes { get; set; }
+        public int Flagged { get; set; }
     }
 }

@@ -12,6 +12,16 @@ namespace GoodnwsWebApp.Services
             _context = context;
         }
 
+        public void FlagStory(string url)
+        {
+            Story story = _context.Stories.SingleOrDefault(sto => sto.Link == url);
+            if(story != null)
+            {
+                story.Flagged++;
+                _context.SaveChanges();
+            }
+        }
+
         public Story Get(string url)
         {
             return _context.Stories.FirstOrDefault(story => story.Link == url);

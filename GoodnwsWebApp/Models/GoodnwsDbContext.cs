@@ -26,7 +26,7 @@ namespace GoodnwsWebApp.Models
                 Date = new DateTime(2018, 10, 18, 9, 52, 0),
                 Source = "Reuters: Top News",
                 Confidence = 0.75f,
-                Votes = 0
+                Flagged = 0
             });
 
             modelBuilder.Entity<Story>().HasData(new Story
@@ -39,7 +39,7 @@ namespace GoodnwsWebApp.Models
                 Date = new DateTime(2018, 9, 19, 16, 54, 0),
                 Source = "The Independent - UK",
                 Confidence = 0.99f,
-                Votes = 0
+                Flagged = 0
             });
 
             modelBuilder.Entity<Story>().HasData(new Story
@@ -52,7 +52,7 @@ namespace GoodnwsWebApp.Models
                 Image = "https://static.independent.co.uk/s3fs-public/styles/feed/public/thumbnails/image/2018/06/25/16/splashing-time-173308.jpg",
                 Source = "The Independent - UK",
                 Confidence = 0.82f,
-                Votes = 0
+                Flagged = 0
             });
 
             modelBuilder.Entity<Story>().HasData(new Story
@@ -65,7 +65,7 @@ namespace GoodnwsWebApp.Models
                 Image = "s3.reutersmedia.net/resources/r/?m=02&d=20180519&t=2&i=1263743607&r=LYNXNPEE4I0E6&w=1200",
                 Source = "Reuters: Top News",
                 Confidence = 0.77f,
-                Votes = 0
+                Flagged = 0
             });
 
             modelBuilder.Entity<Story>().HasData(new Story
@@ -78,7 +78,7 @@ namespace GoodnwsWebApp.Models
                 Image = "http://c.files.bbci.co.uk/16B8F/production/_100917039_p064ldwk.jpg",
                 Source = "BBC News - UK",
                 Confidence = 0.9f,
-                Votes = 0
+                Flagged = 0
             });
         }
     }

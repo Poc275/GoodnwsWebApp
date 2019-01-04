@@ -1,15 +1,17 @@
 ﻿@model GoodnwsWebApp.Models.Story
+@using System.Text.RegularExpressions
 @{
     var confidencePercentage = Model.Confidence * 100;
+    var guid = Guid.NewGuid();
 }
 <article class="container story">
-    <div class="row">
+    <div class="row collapse show" id="@guid.ToString()">
         <div class="col-12 meta-data">
             <small><i class="fas fa-tags"></i> @Model.Source | <i class="far fa-clock"></i> @Model.Date</small>
         </div>
         <div class="col-md-6">
             <h3><a href="@Model.Link" target="_blank">@Html.Raw(Model.Title)</a></h3>
-            <p>@Model.Description</p>
+            <p>@Regex.Replace(Model.Description, "<[^>]*(>|$)", String.Empty)</p>
         </div>
 
         <div class="col-md-6">
@@ -19,7 +21,12 @@
         </div>
 
         <div class="col">
-            <p><i class="far fa-smile"></i> @confidencePercentage%</p>
+            <p>
+                <i class="far fa-smile"></i> @confidencePercentage%
+                <button type="button" class="btn btn-link btn-sm" onclick="flagStory('@Model.Link', '@guid.ToString()')" data-toggle="collapse" data-target="#@guid.ToString()">
+                    <i class="fas fa-flag"></i> Flag
+                </button>
+            </p>
         </div>
     </div>
 </article>
