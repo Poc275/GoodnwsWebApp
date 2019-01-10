@@ -21,9 +21,9 @@
 </head>
 <body>
     <header>
-        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">GoodnwsWebApp</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Good News</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -34,22 +34,38 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a href="#" class="nav-link text-dark" data-toggle="modal" data-target="#aboutModal">About</a>
                         </li>
                     </ul>
                 </div>
             </div>
-        </nav>*@
+        </nav>
+    </header>
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col header-col">
-                    <h1>Goodnws</h1>
-                    <p>Fed up with the scaremongering modern media? You've come to the right place.</p>
+    <!-- about modal dialog -->
+    <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="aboutModalLabel">About Good News</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Fed up of the scare-mongering state of the modern media? Good news is a news site that scours the web and 
+                    only reports good news stories. Stories without the negativity that seems to pervade the news today. This could 
+                    be any positive news story such as an act of human kindness, a scientific breakthrough, a good policy decision 
+                    or just something light hearted.</p>
+                    <p>Each news story we scan is put through a text analytics and sentiment analysis model to predict if it’s good news 
+                    or not. We then use a confidence threshold to decide whether to put it on the site (the score next to the smiley icon). The 
+                    model is still in beta and isn’t 100% accurate, you may see the odd bad news story filtering through. You can help us 
+                    improve the predictions by flagging an article that you don’t think is good news.</p>
+                    <p><a href="https://poc275.me/good-news-project.html" target="_blank">Read a more technical description of how the site works</a>.</p>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
 
     @*<partial name="_CookieConsentPartial" />*@
 
